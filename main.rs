@@ -113,10 +113,23 @@ fn loops() {
     }
 }
 
+fn steal(string: String) {
+    println!("{}", string);
+}
+
+fn ownership() {
+    let one_string = String::from("Vinicius");
+    steal(one_string);
+
+    // fails because steal is the new owner of one_string when called
+    // println!("{}", one_string);
+}
+
 fn main() {
     scope();
     shadow();
     println!("som = {}", sum(2, 2));
     conditionals();
     loops();
+    ownership();
 }
