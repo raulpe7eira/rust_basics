@@ -74,9 +74,39 @@ fn conditionals() {
     println!("É {} de idade", condition);
 }
 
+fn loops() {
+    let multiple:u8 = 5;
+
+    let mut count:u8 = 0;
+    while count < 10 {
+        count += 1;
+
+        if count == 5 {
+            continue;
+        }
+
+        println!("{} x {} = {}", multiple, count, multiple * count);
+    }
+
+    count = 0;
+    loop {
+        count += 1;
+        println!("{} x {} = {}", multiple, count, multiple * count);
+
+        if count == 10 {
+            break;
+        }
+    }
+
+    for count in 1..=10 {
+        println!("{} x {} = {}", multiple, count, multiple * count);
+    }
+}
+
 fn main() {
     scope();
     shadow();
     println!("som = {}", sum(2, 2));
     conditionals();
+    loops();
 }
