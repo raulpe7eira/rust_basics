@@ -72,6 +72,16 @@ fn conditionals() {
 
     let condition = if idade >= 18 { "maior" } else { "menor" };
     println!("É {} de idade", condition);
+
+    let language = "C#";
+    let propose = match language {
+        "PHP" => "Web",
+        "Kotlin" => "Android",
+        "Python" => "Data Science",
+        _ => "Unkown"
+    };
+
+    println!("O propósito de {} é {}", language, propose);
 }
 
 fn loops() {
