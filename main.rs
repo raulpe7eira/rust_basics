@@ -58,8 +58,25 @@ fn scope() {
 
 }
 
+fn conditionals() {
+    let idade:u8 = 17;
+    let parent_authorized = true;
+
+    if idade >= 18 {
+        println!("Pode entrar na balada");
+    } else if idade > 16 && parent_authorized {
+        println!("Pode entrar com assinatura do responsável");
+    } else {
+        println!("Não pode entrar na balada");
+    }
+
+    let condition = if idade >= 18 { "maior" } else { "menor" };
+    println!("É {} de idade", condition);
+}
+
 fn main() {
     scope();
     shadow();
     println!("som = {}", sum(2, 2));
+    conditionals();
 }
