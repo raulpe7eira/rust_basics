@@ -1,6 +1,6 @@
-static mut GLOBAL:i32 = 1;
+static mut GLOBAL: i32 = 1;
 
-fn sum(a:i32, b:i32) -> i32 {
+fn sum(a: i32, b: i32) -> i32 {
     let result = a + b;
     println!("{} + {} = {}", a, b, result);
 
@@ -21,45 +21,54 @@ fn shadow() {
 
 fn scope() {
     unsafe {
-        println!("GLOBAL = {}, size = {} bytes",
+        println!(
+            "GLOBAL = {}, size = {} bytes",
             GLOBAL,
-            std::mem::size_of_val(&GLOBAL));
+            std::mem::size_of_val(&GLOBAL)
+        );
     }
 
-    const PI:f32 = 3.14;
-    println!("PI = {}, size = {} bytes",
-        PI,
-        std::mem::size_of_val(&PI));
+    const PI: f32 = 3.14;
+    println!("PI = {}, size = {} bytes", PI, std::mem::size_of_val(&PI));
 
-    let variable:i32 = 128;
-    println!("variable = {}, size = {} bytes",
+    let variable: i32 = 128;
+    println!(
+        "variable = {}, size = {} bytes",
         variable,
-        std::mem::size_of_val(&variable));
-    let variable:i32 = 120;
-    println!("variable = {}, size = {} bytes",
+        std::mem::size_of_val(&variable)
+    );
+    let variable: i32 = 120;
+    println!(
+        "variable = {}, size = {} bytes",
         variable,
-        std::mem::size_of_val(&variable));
+        std::mem::size_of_val(&variable)
+    );
 
-    let decimal:f32 = 2.5;
-    println!("decimal = {}, size = {} bytes",
+    let decimal: f32 = 2.5;
+    println!(
+        "decimal = {}, size = {} bytes",
         decimal,
-        std::mem::size_of_val(&decimal));
+        std::mem::size_of_val(&decimal)
+    );
 
-    let mut boolean:bool = false;
+    let mut boolean: bool = false;
     boolean = true;
-    println!("boolean = {}, size = {} bytes",
+    println!(
+        "boolean = {}, size = {} bytes",
         boolean,
-        std::mem::size_of_val(&boolean));
+        std::mem::size_of_val(&boolean)
+    );
 
-    let letter:char = 'C';
-    println!("letter = {}, size = {} bytes",
+    let letter: char = 'C';
+    println!(
+        "letter = {}, size = {} bytes",
         letter,
-        std::mem::size_of_val(&letter));
-
+        std::mem::size_of_val(&letter)
+    );
 }
 
 fn conditionals() {
-    let idade:u8 = 17;
+    let idade: u8 = 17;
     let parent_authorized = true;
 
     if idade >= 18 {
@@ -78,16 +87,16 @@ fn conditionals() {
         "PHP" => "Web",
         "Kotlin" => "Android",
         "Python" => "Data Science",
-        _ => "Unkown"
+        _ => "Unkown",
     };
 
     println!("O propósito de {} é {}", language, propose);
 }
 
 fn loops() {
-    let multiple:u8 = 5;
+    let multiple: u8 = 5;
 
-    let mut count:u8 = 0;
+    let mut count: u8 = 0;
     while count < 10 {
         count += 1;
 
@@ -127,13 +136,17 @@ fn ownership() {
 
 fn pattern_matching() {
     for x in 1..=20 {
-        println!("{}: {}", x, match x {
-            1 => "Pouco",
-            2 | 3 => "Um pouquinho",
-            4..=10 => "Um bocado",
-            _ if x % 2 == 0 => "Uma boa quantidade",
-            _ => "Muito"
-        });
+        println!(
+            "{}: {}",
+            x,
+            match x {
+                1 => "Pouco",
+                2 | 3 => "Um pouquinho",
+                4..=10 => "Um bocado",
+                _ if x % 2 == 0 => "Uma boa quantidade",
+                _ => "Muito",
+            }
+        );
     }
 }
 
@@ -144,7 +157,7 @@ fn result() -> Result<String, u8> {
 fn error() {
     match result() {
         Ok(msg) => println!("String de sucesso = {}", msg),
-        Err(err) => println!("Código de erro = {}", err)
+        Err(err) => println!("Código de erro = {}", err),
     };
 }
 
