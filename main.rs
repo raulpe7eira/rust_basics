@@ -137,6 +137,17 @@ fn pattern_matching() {
     }
 }
 
+fn result() -> Result<String, u8> {
+    Err(42)
+}
+
+fn error() {
+    match result() {
+        Ok(msg) => println!("String de sucesso = {}", msg),
+        Err(err) => println!("Código de erro = {}", err)
+    };
+}
+
 fn main() {
     scope();
     shadow();
@@ -145,4 +156,5 @@ fn main() {
     loops();
     ownership();
     pattern_matching();
+    error();
 }
