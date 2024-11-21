@@ -113,16 +113,16 @@ fn loops() {
     }
 }
 
-fn steal(string: String) {
+fn borrowing(string: &mut String) {
+    string.push_str(" Dias");
     println!("{}", string);
 }
 
 fn ownership() {
-    let one_string = String::from("Vinicius");
-    steal(one_string);
+    let mut one_string = String::from("Vinicius");
+    borrowing(&mut one_string);
 
-    // fails because steal is the new owner of one_string when called
-    // println!("{}", one_string);
+    println!("{}", one_string);
 }
 
 fn main() {
